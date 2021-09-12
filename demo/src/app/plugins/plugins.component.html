@@ -101,6 +101,37 @@
   </section>
 
   <section>
+    <h2 id="command-line">Command Line plugin</h2>
+
+    <markdown ngPreserveWhitespaces>
+      #### Prism files to include
+      ```javascript
+      node_modules/prismjs/plugins/command-line/prism-command-line.css
+      node_modules/prismjs/plugins/command-line/prism-command-line.js
+      ```
+      #### Directive
+      `commandLine` - activate command line plugin
+      #### Attributes
+      `promp` - the command line prompt to display
+      ### Example
+    </markdown>
+
+    <markdown>
+      The example below uses `commandLine` directive with the `prompt=`.
+    </markdown>
+
+    <markdown commandLine prompt="julia>" rawOutputLines="2-100" ngPreserveWhitespaces>
+      ```javascript
+      var booboo = square(2);
+      ```
+    </markdown>
+
+
+
+  </section>
+
+
+  <section>
     <h2 id="line-highlight">Line Highlight plugin</h2>
 
     <markdown ngPreserveWhitespaces>

@@ -15,6 +15,7 @@ export class MarkdownComponent implements OnChanges, AfterViewInit {
   protected static ngAcceptInputType_katex: boolean | '';
   protected static ngAcceptInputType_lineHighlight: boolean | '';
   protected static ngAcceptInputType_lineNumbers: boolean | '';
+  protected static ngAcceptInputType_commandLine: boolean | '';
 
   @Input() data: string | undefined;
   @Input() src: string | undefined;
@@ -43,6 +44,13 @@ export class MarkdownComponent implements OnChanges, AfterViewInit {
   set lineNumbers(value: boolean) { this._lineNumbers = this.coerceBooleanProperty(value); }
   @Input() start: number | undefined;
 
+  // Plugin - commandLine
+  @Input()
+  get commandLine(): boolean { return this._commandLine; }
+  set commandLine(value: boolean) { this._commandLine = this.coerceBooleanProperty(value); }
+  @Input() prompt: string | undefined;
+  @Input() rawOutputLines: string | undefined;
+
   // Event emitters
   @Output() error = new EventEmitter<string>();
   @Output() load = new EventEmitter<string>();
@@ -52,6 +60,7 @@ export class MarkdownComponent implements OnChanges, AfterViewInit {
   private _katex = false;
   private _lineHighlight = false;
   private _lineNumbers = false;
+  private _commandLine = false;
 
   constructor(
     public element: ElementRef<HTMLElement>,
@@ -115,6 +124,10 @@ export class MarkdownComponent implements OnChanges, AfterViewInit {
     if (this.lineNumbers) {
       this.setPluginClass(this.element.nativeElement, PrismPlugin.LineNumbers);
       this.setPluginOptions(this.element.nativeElement, { dataStart: this.start });
+    }
+    if (this.commandLine) {
+      this.setPluginClass(this.element.nativeElement, PrismPlugin.CommandLine);
+      this.setPluginOptions(this.element.nativeElement, { "data-prompt": this.prompt, "data-output": this.rawOutputLines });
     }
   }
 

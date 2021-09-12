@@ -38,6 +38,7 @@
               "demo/src/scss/prism-theme.scss",
               "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.css",
               "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
+              "node_modules/prismjs/plugins/command-line/prism-command-line.css",
               "node_modules/katex/dist/katex.min.css"
             ],
             "scripts": [
@@ -46,6 +47,7 @@
               "node_modules/prismjs/plugins/highlight-keywords/prism-highlight-keywords.min.js",
               "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.js",
               "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js",
+              "lib/src/prism-command-line2.js",
               "node_modules/prismjs/components/prism-bash.min.js",
               "node_modules/prismjs/components/prism-c.min.js",
               "node_modules/prismjs/components/prism-cpp.min.js",
